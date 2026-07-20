@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/home_screen.dart';
 
 class ImageItemWidget extends StatelessWidget {
   const ImageItemWidget({
@@ -7,8 +8,8 @@ class ImageItemWidget extends StatelessWidget {
     required this.title,
     this.onTap,
   });
-  final String image;
-  final String title;
+  final String? image;
+  final String? title;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class ImageItemWidget extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.network(
-                image,
+                image ?? dummyImage,
 
                 height: 200,
                 width: double.infinity,
@@ -42,7 +43,7 @@ class ImageItemWidget extends StatelessWidget {
 
             //! title
             Text(
-              title,
+              title ?? "empty title",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
